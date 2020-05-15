@@ -6,6 +6,9 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,6 +40,9 @@ public User findUser(@PathVariable int id) throws UserNotFoundException  {
 	User user=service.findById(id);
 	if(user==null)
 		throw new UserNotFoundException("id :"+id);
+	/*EntityModel<User> model=new EntityModel<>(user);
+	  linkTo(methodOn(this.getClass()).retrieveAllUsers());
+	model.add(linkTo.withRel("all-users"));*/
 	return user;
 }
 
@@ -58,7 +64,6 @@ public void deleteUser(@PathVariable int id) throws UserNotFoundException  {
 		throw new UserNotFoundException("id :"+id);
 	
 }
-
 	
 	
 }
