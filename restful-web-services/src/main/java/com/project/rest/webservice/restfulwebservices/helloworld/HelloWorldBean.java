@@ -1,10 +1,10 @@
-package com.project.rest.webservice.restfulwebservices;
+package com.project.rest.webservice.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 
 	private String message;
 	
-	HelloWorldBean(String message){
+	public HelloWorldBean(String message){
 		this.message=message;
 	}
 
